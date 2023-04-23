@@ -27,6 +27,8 @@ def pascal_triangle(n):
                 if j == 0 or j == i:
                     row.append(1)
                 else:
+                    """Each element is the sum of the two elements
+                    above it in the previous row"""
                     row.append(triangle[i-1][j-1] + triangle[i-1][j])
             # Append the row to the triangle list
             triangle.append(row)
