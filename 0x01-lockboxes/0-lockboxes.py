@@ -2,6 +2,7 @@
 """a method that determines if all the boxes can be opened
 """
 
+
 def canUnlockAll(boxes):
     """set to keep track of which boxes are unlocked"""
     unlocked = {0}
