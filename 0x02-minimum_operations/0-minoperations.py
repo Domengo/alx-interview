@@ -2,6 +2,7 @@
 """return an integer"""
 
 def minOperations(n):
+    ''''minimum operations'''
     if n == 1:
         return 0
 
@@ -19,4 +20,3 @@ def minOperations(n):
         return operations
     else:
         return 0
-
