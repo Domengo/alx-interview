@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """return an integer"""
 
+
 def minOperations(n):
     ''''minimum operations'''
     if n == 1:
