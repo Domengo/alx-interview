@@ -22,7 +22,7 @@ def minOperations(n):
     else:
         return 0
 # def minOperations(n):
-#     
+#     '''minimum operations'''
 #     if n < 2:
 #         return 0
 
