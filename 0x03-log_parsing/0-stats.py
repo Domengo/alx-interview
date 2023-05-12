@@ -40,4 +40,3 @@ except KeyboardInterrupt:
 
 finally:
     print_n(t_file_size, status)
-
