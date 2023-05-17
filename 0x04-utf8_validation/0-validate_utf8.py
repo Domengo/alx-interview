@@ -8,17 +8,14 @@ def validUTF8(data):
     num_bytes = 0
     for byte in data:
         # If num_bytes is 0, we are starting a new character
-        if num_bytes == 0:
-            # Count the number of leading 1s to determine the number of bytes
-            if byte >> 7 == 0b0:
-                num_bytes = 1
-            elif byte >> 5 == 0b110:
-                num_bytes = 2
-            elif byte >> 4 == 0b1110:
-                num_bytes = 3
-            elif byte >> 3 == 0b11110:
-                num_bytes = 4
-            else:
+        mask = 1 << 7
+        if not num_bytes:
+            while byte & mask:
+                num_bytes += 1
+                mask >>= 1
+            if not num_bytes:
+                continue
+            if num_bytes == 1 or num_bytes > 4:
                 return False
         else:
             # Check if the byte is a valid continuation byte
