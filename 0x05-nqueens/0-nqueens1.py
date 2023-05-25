@@ -6,5 +6,5 @@ def queens(n, i, a, b, c):
     else:
         yield a
 
-for solution in queens(4, 0, [], [], []):
+for solution in queens(8, 0, [], [], []):
     print(f'{solution}')
