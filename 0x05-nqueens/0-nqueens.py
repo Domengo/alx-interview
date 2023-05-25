@@ -6,6 +6,7 @@
 """
 import sys
 
+
 def solve_n_queens(n):
     """_summary_
 
