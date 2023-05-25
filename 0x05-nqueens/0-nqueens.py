@@ -1,8 +1,19 @@
+#!/usr/bin/python3
+"""_summary_
+
+    Returns:
+        _type_: _description_
+"""
 import sys
 
 def solve_n_queens(n):
+    """_summary_
+
+    Args:
+        n (_type_): _description_
+    """
     def is_valid(board, row, col):
-        # Check row and column
+        '''Check row and column'''
         for i in range(col):
             if board[row][i] == 1:
                 return False
@@ -25,6 +36,12 @@ def solve_n_queens(n):
         return True
 
     def backtrack(board, col):
+        """_summary_
+
+        Args:
+            board (_type_): _description_
+            col (_type_): _description_
+        """
         if col == n:
             solution = []
             for i in range(n):
@@ -45,6 +62,8 @@ def solve_n_queens(n):
 
 
 if __name__ == "__main__":
+    """_summary_
+    """
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
