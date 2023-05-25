@@ -50,7 +50,7 @@ def solve_n_queens(n):
 
 
 # Example usage
-n = argv[1]
+n = int(argv[1])
 solutions = solve_n_queens(n)
 for solution in solutions:
     print(solution)
