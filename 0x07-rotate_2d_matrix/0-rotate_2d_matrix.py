@@ -13,7 +13,7 @@ def rotate_2d_matrix(matrix):
     for i in range(len(matrix) // 2):
         for j in range(i, len(matrix) - i - 1):
             matrix[i][j], matrix[j][len(matrix) - i - 1], \
-                matrix[len(matrix) - i - 1][len(matrix) - j - 1], \
-                    matrix[len(matrix) - j - 1][i] = matrix[len(matrix) - j - 1][i], \
-                        matrix[i][j], matrix[j][len(matrix) - i - 1], \
-                            matrix[len(matrix) - i - 1][len(matrix) - j - 1]
+            matrix[len(matrix) - i - 1][len(matrix) - j - 1], \
+            matrix[len(matrix) - j - 1][i] = matrix[len(matrix) - j - 1][i], \
+            matrix[i][j], matrix[j][len(matrix) - i - 1], \
+            matrix[len(matrix) - i - 1][len(matrix) - j - 1]
