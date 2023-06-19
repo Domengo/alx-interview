@@ -2,8 +2,11 @@
 """return fewest number of coins needed to meet total
 """
 
+
 def makeChange(coins, total):
-    # Create a list to store the minimum number of coins needed for each total value
+    """Create a list to store the minimum number
+    of coins needed for each total value
+    """
     dp = [float('inf')] * (total + 1)
     dp[0] = 0  # Base case: no coins needed for total of 0
 
@@ -15,4 +18,3 @@ def makeChange(coins, total):
         return -1  # Total cannot be met by any number of coins
     else:
         return dp[total]  # Minimum number of coins needed for the total
-
