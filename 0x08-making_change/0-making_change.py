@@ -3,18 +3,27 @@
 """
 
 
-def makeChange(coins, total):
-    """Create a list to store the minimum number
-    of coins needed for each total value
-    """
-    dp = [float('inf')] * (total + 1)
-    dp[0] = 0  # Base case: no coins needed for total of 0
-
-    for coin in coins:
-        for i in range(coin, total + 1):
-            dp[i] = min(dp[i], dp[i - coin] + 1)
-
-    if dp[total] == float('inf'):
+def makeChange(coins, total, memo=None):
+    """make"""
+    if total < 0:
         return -1  # Total cannot be met by any number of coins
-    else:
-        return dp[total]  # Minimum number of coins needed for the total
+    if total == 0:
+        return 0  # Base case: no coins needed for total of 0
+
+    if memo is None:
+        memo = {}  # Memoization dictionary to store computed results
+
+    if total in memo:
+        return memo[total]
+
+    min_coins = float("inf")
+    for coin in coins:
+        result = makeChange(coins, total - coin, memo)
+        if result >= 0 and result < min_coins:
+            min_coins = result + 1
+
+    if min_coins == float("inf"):
+        min_coins = -1  # Total cannot be met by any combination of coins
+
+    memo[total] = min_coins
+    return min_coins
