@@ -44,4 +44,3 @@ def isWinner(x, nums):
             winners.append("Maria")
             nums = [i for i in nums if i % nums[0] != 0]
     return max(set(winners), key=winners.count)
-
