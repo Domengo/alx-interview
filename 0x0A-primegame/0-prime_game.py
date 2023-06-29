@@ -32,15 +32,30 @@
 #     if p1 * 2 > len(nums):
 #         return "Maria"
 #     return "Ben"
-
 def isWinner(x, nums):
-    winners = []
-    for i in range(x):
-        if nums[0] == 1:
-            winners.append("Ben")
-        elif nums[0] == 2:
-            winners.append("Maria")
+    maria_wins = 0
+    ben_wins = 0
+
+    for n in nums:
+        primes = [True] * (n+1)
+        primes[0] = primes[1] = False
+
+        for i in range(2, int(n**0.5) + 1):
+            if primes[i]:
+                for j in range(i*i, n+1, i):
+                    primes[j] = False
+
+        # Determine the winner for the current round
+        if primes.count(True) % 2 == 0:
+            ben_wins += 1
         else:
-            winners.append("Maria")
-            nums = [i for i in nums if i % nums[0] != 0]
-    return max(set(winners), key=winners.count)
+            maria_wins += 1
+
+    # Determine the overall winner
+    if maria_wins > ben_wins:
+        return "Maria"
+    elif ben_wins > maria_wins:
+        return "Ben"
+    else:
+        return None
+
